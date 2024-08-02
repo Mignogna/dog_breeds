@@ -1,0 +1,352 @@
+@import url("https://fonts.cdnfonts.com/css/handcraft");
+@import url("https://fonts.cdnfonts.com/css/chams");
+@import url("https://fonts.cdnfonts.com/css/belanosima");
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(24, 23, 23);
+  overflow: hidden;
+  cursor: url(./images/color-pata_clara-removebg-preview.png), auto;
+}
+
+/*Carousel*/
+.carousel {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: -5.8rem;
+  display: flex;
+}
+.carousel .list .item {
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.carousel .list .item img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.carousel .list .item .content {
+  position: absolute;
+  top: 5%;
+  left: 7%;
+  width: 50%;
+  box-sizing: border-box;
+  color: rgb(230, 14, 14);
+  font-family: "Belanosima", sans-serif;
+  text-shadow: 0 5px 10px #0004;
+}
+
+.carousel .list .item .content .title,
+.carousel .list .item .content .topic {
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgb(230, 14, 14);
+}
+.carousel .list .item .content .breed {
+  font-size: 4.5rem;
+  margin: 1rem 0;
+  font-family: "Handcraft", sans-serif;
+}
+
+.carousel .list .item .content .des {
+  font-size: 2.5rem;
+  line-height: 2.8rem;
+  text-align: justify;
+  color: rgb(255, 229, 182);
+}
+
+/*Thumbnail*/
+.thumbnail {
+  position: absolute;
+  bottom: 5rem;
+  left: 60%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 2rem;
+}
+.thumbnail .item {
+  width: 15rem;
+  height: 22rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.thumbnail .item .content .title {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  font-family: "Belanosima", sans-serif;
+  color: rgb(230, 14, 14);
+  font-weight: bold;
+}
+
+/*Arrows*/
+.arrows {
+  position: absolute;
+  top: 90%;
+  right: 30%;
+  width: 30rem;
+  max-width: 30%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.arrows button {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  color: rgb(255, 229, 182);
+  background-color: rgb(230, 14, 14);
+  font-size: 3rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  box-shadow: 0.3rem 0.3rem 0.8rem #0004;
+  transition: 0.5s;
+  font-family: monospace;
+  z-index: 1;
+}
+.arrows button:hover,
+.arrows button:focus {
+  box-shadow: inset 0.2rem 0.2rem 0.8rem rgb(70, 67, 67);
+  cursor: url(./images/color-pata_clara-removebg-preview.png), auto;
+}
+.carousel .list .item:nth-child(1) {
+  z-index: 1;
+}
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .breed,
+.carousel .list .item:nth-child(1) .des,
+.carousel .list .item:nth-child(1) .buttons {
+  transform: translateY(5rem);
+  filter: blur(2rem);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+.carousel .list .item:nth-child(1) .title {
+  animation-delay: 1.2s;
+}
+.carousel .list .item:nth-child(1) .topic {
+  animation-delay: 1.4s;
+}
+.carousel .list .item:nth-child(1) .breed {
+  animation-delay: 1.6s;
+}
+.carousel .list .item:nth-child(1) .des {
+  animation-delay: 1.8s;
+}
+.carousel .list .item:nth-child(1) .buttons {
+  animation-delay: 1.8s;
+}
+/*carousel next click*/
+.carousel.next .list .item:nth-child(1) img {
+  width: 15rem;
+  height: 22rem;
+  position: absolute;
+  left: 50%;
+  bottom: 5rem;
+  border-radius: 20px;
+  animation: showImage 1s linear 1 forwards;
+}
+@keyframes showImage {
+  to {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+}
+.carousel.next .thumbnail .item:nth-last-child(1) {
+  width: 0;
+  overflow: hidden;
+  animation: showThumbnail 1s linear 1 forwards;
+}
+@keyframes showThumbnail {
+  to {
+    width: 15rem;
+  }
+}
+.carousel.next .thumbnail {
+  transform: translateX(15rem);
+  animation: transformThumbnail 1s linear 1 forwards;
+}
+@keyframes transformThumbnail {
+  to {
+    transform: translateX(0);
+  }
+}
+/*Effect prev click*/
+.carousel.prev .list .item:nth-child(2) {
+  z-index: 2;
+}
+.carousel.prev .list .item:nth-child(2) img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: outImage 1s linear 1 forwards;
+}
+@keyframes outImage {
+  to {
+    width: 15rem;
+    height: 22rem;
+    border-radius: 20px;
+    left: 60%;
+    bottom: 5rem;
+  }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1) {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail 1s linear 1 forwards;
+}
+.carousel.prev
+  .list
+  .item:nth-child(2)
+  .title
+  .carousel.prev
+  .list
+  .item:nth-child(2)
+  .topic,
+.carousel.prev .list .item:nth-child(2) .breed,
+.carousel.prev .list .item:nth-child(2) .des,
+.carousel.prev .list .item:nth-child(2) .buttons {
+  animation: contentOut 1.5s linear 1 forwards;
+}
+@keyframes contentOut {
+  to {
+    transform: translateY(-15rem);
+    filter: blur(2rem);
+    opacity: 0;
+  }
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button {
+  pointer-events: none;
+}
+/*Time*/
+.time {
+  width: 0%;
+  height: 5px;
+  background-color: rgb(243, 84, 11);
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+.carousel.next .time,
+.carousel.prev .time {
+  width: 100%;
+  animation: timeRunning 2s;
+}
+@keyframes timeRunning {
+  to {
+    width: 0;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .carousel .list .item .content .title,
+  .carousel .list .item .content .topic {
+    font-size: 2.5rem;
+  }
+  .carousel .list .item .content .breed {
+    font-size: 2.5rem;
+  }
+  .carousel .list .item .content .des {
+    font-size: 1.7rem;
+    line-height: 2rem;
+  }
+  .arrows {
+    position: absolute;
+    top: 90%;
+    right: 30%;
+  }
+  .arrows button {
+    height: 3.2rem;
+    width: 3.2rem;
+    font-size: 2.4rem;
+  }
+  .thumbnail .item {
+    width: 13rem;
+    height: 20rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel .list .item .content {
+    position: absolute;
+    top: 20%;
+    left: 4%;
+    text-shadow: none;
+  }
+  .carousel .list .item .content .title,
+  .carousel .list .item .content .topic {
+    font-size: 2.5rem;
+  }
+  .carousel .list .item .content .breed {
+    font-size: 2.5rem;
+  }
+  .carousel .list .item .content .des {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .thumbnail .item {
+    width: 10rem;
+    height: 16rem;
+  }
+  .thumbnail .item .content .title {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 430px) {
+  .carousel .list .item .content {
+    position: absolute;
+    top: 15%;
+    left: 2%;
+    text-shadow: none;
+    width: 55%;
+  }
+
+  .carousel .list .item .content .title,
+  .carousel .list .item .content .topic {
+    font-size: 2rem;
+  }
+  .carousel .list .item .content .breed {
+    font-size: 2rem;
+  }
+  .carousel .list .item .content .des {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+  }
+  .thumbnail .item {
+    width: 8rem;
+    height: 14rem;
+  }
+  .thumbnail .item .content .title {
+    font-size: 1.1rem;
+  }
+}
