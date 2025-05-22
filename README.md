@@ -1,6 +1,6 @@
 
 
-<img align="right" height="420" width="550" src="https://github.com/user-attachments/assets/96e0d1c4-acb7-446f-92f3-d766d756b2e4">
+<img align="right" height="480" width="550" src="https://github.com/user-attachments/assets/96e0d1c4-acb7-446f-92f3-d766d756b2e4">
 
 ## Um carrossel diferente
 Um slide especial para apresentar algumas raças de cães. Nele é exibido miniaturas das próximas imagens e a descriação é apresentada de forma dinâmica.
